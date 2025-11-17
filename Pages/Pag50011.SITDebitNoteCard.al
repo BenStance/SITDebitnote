@@ -158,8 +158,11 @@ page 50011 "SIT Debit Note Card"
                 PromotedCategory = Report;
 
                 trigger OnAction()
+                var 
+                    SITDebitNoteReport: Report "SIT Debit Note";
                 begin
-                    Message('Debit Note report generation process triggered.');
+                    SITDebitNoteReport.SetTableView(Rec);
+                    SITDebitNoteReport.Run();
                 end;
             }
         }
